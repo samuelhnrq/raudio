@@ -1,0 +1,38 @@
+name: raudio
+version: "0.1"
+author: Samuel H. <samuel@hnrq.dev.br>
+about: Learning audio with Rust
+args:
+  - verbose:
+      help: verbosity level
+      long: verbose
+      multiple: true
+      takes_value: false
+      short: v
+subcommands:
+  - simple_sin:
+      about: Simple constant sinusoid signal
+      version: "1.0"
+      author: Samuel H. <samuel@hnrq.dev.br>
+      args:
+        - num_samples:
+            help: number of samples to generate
+            long: samples
+            takes_value: true
+            required: true
+            index: 1
+            short: s
+        - frequency:
+            long: frequency
+            short: f
+            required: true
+            index: 2
+            takes_value: true
+            help: frequency in hertz
+        - sample_rate:
+            long: sample-rate
+            short: r
+            required: true
+            index: 3
+            takes_value: true
+            help: sample rate in hertz
