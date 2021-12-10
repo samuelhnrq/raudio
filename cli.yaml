@@ -36,3 +36,36 @@ subcommands:
             index: 3
             takes_value: true
             help: sample rate in hertz
+  - decay_sin:
+      about: Simple decaying sinusoid signal
+      version: "1.0"
+      author: Samuel H. <samuel@hnrq.dev.br>
+      args:
+        - duration:
+            help: number of samples to generate
+            long: duration
+            takes_value: true
+            required: true
+            index: 1
+            short: d
+        - frequency:
+            long: frequency
+            short: f
+            required: true
+            index: 2
+            takes_value: true
+            help: frequency in hertz
+        - sample_rate:
+            long: sample-rate
+            short: r
+            required: true
+            index: 3
+            takes_value: true
+            help: sample rate in hertz
+        - slope:
+            long: slope
+            short: s
+            required: true
+            index: 4
+            takes_value: true
+            help: slope of decay in dB/s

@@ -2,6 +2,7 @@
 extern crate clap;
 
 mod args;
+mod decay_sin_wave;
 mod simples_sin_wave;
 
 use clap::App;
@@ -12,6 +13,9 @@ fn main() {
   match matches.subcommand() {
     ("simple_sin", Some(matches)) => {
       simples_sin_wave::run(matches);
+    }
+    ("decay_sin", Some(matches)) => {
+      decay_sin_wave::run(matches);
     }
     _ => {
       println!("{}", matches.usage());
