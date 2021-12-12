@@ -1,10 +1,10 @@
 use crate::args::extract_value;
+use crate::hound_f32::F32HoundWriter;
 use clap::ArgMatches;
 use std::f32::consts::PI;
 use std::time::Instant;
 
 const TWO_PI: f32 = PI * 2.0;
-const AMPLITUDE: f32 = std::i16::MAX as f32;
 
 pub fn run(matches: &ArgMatches) {
   let duration: f32 = extract_value(&matches, "duration");
@@ -26,7 +26,7 @@ pub fn run(matches: &ArgMatches) {
   let decay = (-sample_rate / slope).exp();
 
   let mut writer =
-    hound::WavWriter::create("sine.wav", spec).expect("Could not create file for writing");
+    F32HoundWriter::create("sine.wav", spec).expect("Could not create file for writing");
 
   let mut x = 1.0;
   let start_time = Instant::now();
@@ -36,7 +36,7 @@ pub fn run(matches: &ArgMatches) {
     x *= decay;
     let sample = (angle_inc * i as f32).sin() * x;
     writer
-      .write_sample((sample * AMPLITUDE) as i16)
+      .write_sample(sample)
       .expect("Failed to write to file");
   }
   println!(

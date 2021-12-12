@@ -1,7 +1,10 @@
 #[macro_use]
 extern crate clap;
 
+mod hound_f32;
+
 mod args;
+mod change_amplitude;
 mod decay_sin_wave;
 mod simples_sin_wave;
 
@@ -16,6 +19,9 @@ fn main() {
     }
     ("decay_sin", Some(matches)) => {
       decay_sin_wave::run(matches);
+    }
+    ("change_amplitude", Some(matches)) => {
+      change_amplitude::run(matches);
     }
     _ => {
       println!("{}", matches.usage());

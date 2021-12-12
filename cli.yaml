@@ -69,3 +69,16 @@ subcommands:
             index: 4
             takes_value: true
             help: slope of decay in dB/s
+  - change_amplitude:
+      about: Change the amplitude of a Wav File
+      version: "1.0"
+      author: Samuel H. <samuel@hnrq.dev.br>
+      args:
+        - input_file:
+            help: input wav file
+            takes_value: true
+            required: true
+        - change_factor:
+            help: target amplitude change factor
+            required: true
+            takes_value: true
